@@ -1,0 +1,32 @@
+
+#container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Canvas Container
+#canvas-container {
+    flex: 1;
+    position: relative;
+}
+
+#three-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+} */
+#canvas-container {
+    position: relative;
+    width: 100%; /* Take full width */
+    height: 100vh; /* Take full height of the viewport */
+    overflow: hidden;
+    margin-left: 30%; /* Adjusted to the width of the sidebar */
+}
+
+#three-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Stretch to container */
+    height: 100%; /* Stretch to container */
+}

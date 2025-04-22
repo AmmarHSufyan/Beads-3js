@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bracelet with Beads</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script type="module" crossorigin src="/assets/index-C2VQyRvu.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DEon9M3I.css">
+</head>
+
+<body>
+
+  <!-- not sure where to place the 3js canvas  -->
+
+
+  <!-- Three.js canvas -->
+  <div id="canvas-container">
+    <canvas id="three-canvas"></canvas>
+  </div>
+
+
+  <div class="top-right-button-container">
+    <div class="button-row">
+      <button><i class="fa-solid fa-rotate-left canvas-icon"></i></button><button><i
+          class="fa-solid fa-rotate-right canvas-icon"></i></button>
+    </div>
+  </div>
+  <div class="bottom-left-button-container">
+    <div class="button-row-hidden">
+      <button><i class="fa-solid fa-plus canvas-icon"></i></button><button><i
+          class="fa-solid fa-arrow-rotate-left canvas-icon"></i></button><button><i
+          class="fa-solid fa-angle-up canvas-icon"></i></button><button><i
+          class="fa-solid fa-rotate-right canvas-icon"></i></button><button><i
+          class="fa-solid fa-rotate canvas-icon-red"></i></button>
+    </div>
+    <div class="button-row-hidden">
+      <button><i class="fa-solid fa-minus canvas-icon"></i></button><button><i
+          class="fa-solid fa-chevron-left canvas-icon"></i></button><button><i
+          class="fa-solid fa-angle-down canvas-icon"></i></button><button><i
+          class="fa-solid fa-angle-right canvas-icon"></i></button>
+    </div>
+    <div class="button-row">
+      <button id="canvasToggleButton"><i class="fa-solid fa-cube canvas-icon"></i></button>
+    </div>
+    <div class="button-row">
+      <button><i class="fa-solid fa-scissors canvas-icon"></i></button><button><i
+          class="fa-solid fa-down-left-and-up-right-to-center canvas-icon"></i></button><button><i
+          class="fa-solid fa-bezier-curve canvas-icon"></i></button>
+    </div>
+  </div>
+
+  <div class="bottom-right-button-container">
+    <div class="button-row">
+      <button><i class="fa-regular fa-trash-can canvas-icon-red"></i></button>
+    </div>
+    <div class="button-row">
+      <button><i class="fa-regular fa-copy canvas-icon"></i></button>
+    </div>
+    <div class="button-row">
+      <button><i class="fa-solid fa-arrow-left canvas-icon"></i></button>
+    </div>
+    <div class="button-row">
+      <button><i class="fa-solid fa-arrow-right canvas-icon"></i></button>
+    </div>
+  </div>
+
+    <div class="toast" id="infoToast">
+      <div class="toast-header">
+        <span id="toastTitle" class="toast-title">Toast Title</span>
+        <button class="close-btn" onclick="closeToast()">&times;</button>
+      </div>
+      <div class="toast-body">
+        <p id="toastMessage">Your message here</p>
+      </div>
+    </div>
+ 
+  <div class="fixed-sidebar">
+    <div class="sidebar-header">
+      <span class="price">$100</span>
+      <button class="finalize-btn">Finalize<i class="fa-solid fa-arrow-right finalize-btn-icon"></i></button>
+      <span class="toggle-sidebar" onclick="toggleOverlay()">&#9776;</span>
+    </div>
+    <div class="sidebar-body" id="sidebarBody">
+      <p class="sidebar-body-main-heading">Please select the bracelet circumference</p>
+      <div class="nav-item" onclick="toggleSection('quickSelection')">
+        <i class="fa-solid fa-angles-right nav-item-icon"></i><span class="nav-text">Quick Selection</span>
+        <span class="fa-solid fa-chevron-right"></span>
+      </div>
+      <div id="quickSelection" class="hidden-section">
+        <div class="wrap-selection">
+          <p>Wrap:</p>
+          <button class="selectable-wrap" onclick="selectWrapOption(this)">1</button>
+          <button class="selectable-wrap" onclick="selectWrapOption(this)">2</button>
+          <button class="selectable-wrap" onclick="selectWrapOption(this)">3</button>
+          <span class="fa-regular fa-circle-question help-icon"
+            onclick="event.stopPropagation(); 
+                                showToast('How to measure your wrist size?', 
+                                            'Wrist circumference + 2 cm <br/><br/> 1. First, use a measuring tape to measure the circumference of your wrist where you usually wear your bracelet. If you do not have a measuring tape, you can use a strip of paper, ribbon, or string, and wrap it around your wrist to take the measurement. <br/><br/>2. If you are using a strip of paper, ribbon, or string, mark the endpoint and then measure the length with a ruler to get the wrist circumference. To ensure a comfortable fit, add 2 cm to your wrist measurement to determine the ideal bracelet circumference.')">
+          </span>
+        </div>
+        
+        <div class="selectable" data-wrap="1"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">17cm</h3>
+          <span class="sel-circum-text">Suitable for women with slimmer wrists</span>
+        </div>
+        <div class="selectable" data-wrap="1"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">18cm</h3>
+          <span class="sel-circum-text">Suitable for most women</span>
+        </div>
+        <div class="selectable" data-wrap="1"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">19cm</h3>
+          <span class="sel-circum-text">Suitable for women who like a loose fit or men like a snug fit</span>
+        </div>
+        <div class="selectable" data-wrap="1"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">20cm</h3>
+          <span class="sel-circum-text">Suitable for most men</span>
+        </div>
+        <div class="selectable" data-wrap="1"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">21cm</h3>
+          <span class="sel-circum-text">Suitable for men with thicker wrists</span>
+        </div>
+
+        <div class="selectable" data-wrap="2"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">34cm</h3>
+          <span class="sel-circum-text">Suitable for women with slimmer wrists</span>
+        </div>
+        <div class="selectable" data-wrap="2"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">36cm</h3>
+          <span class="sel-circum-text">Suitable for most women</span>
+        </div>
+        <div class="selectable" data-wrap="2"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">38cm</h3>
+          <span class="sel-circum-text">Suitable for women who like a loose fit or men like a snug fit</span>
+        </div>
+        <div class="selectable" data-wrap="2"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">40cm</h3>
+          <span class="sel-circum-text">Suitable for most men</span>
+        </div>
+        <div class="selectable" data-wrap="2"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">42cm</h3>
+          <span class="sel-circum-text">Suitable for men with thicker wrists</span>
+        </div>
+        
+        <div class="selectable" data-wrap="3"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">51cm</h3>
+          <span class="sel-circum-text">Suitable for women with slimmer wrists</span>
+        </div>
+        <div class="selectable" data-wrap="3"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">54cm</h3>
+          <span class="sel-circum-text">Suitable for most women</span>
+        </div>
+        <div class="selectable" data-wrap="3"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">57cm</h3>
+          <span class="sel-circum-text">Suitable for women who like a loose fit or men like a snug fit</span>
+        </div>
+        <div class="selectable" data-wrap="3"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">60cm</h3>
+          <span class="sel-circum-text">Suitable for most men</span>
+        </div>
+        <div class="selectable" data-wrap="3"  onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">63cm</h3>
+          <span class="sel-circum-text">Suitable for men with thicker wrists</span>
+        </div>
+      </div>
+      <div class="nav-item" onclick="toggleSection('customLength')">
+        <i class="fa-regular fa-user nav-item-icon"></i><span class="nav-text">Custom Length</span>
+        <span class="fa-solid fa-chevron-right"></span>
+      </div>
+      <div id="customLength" class="hidden-section custom-length-field">
+        <div class="input-wrapper">
+          <input type="number" placeholder="Circumference (cm)">
+          <span class="fa-regular fa-circle-question help-icon"
+            onclick="event.stopPropagation(); 
+                                showToast('How to measure your wrist size?', 
+                                            'Wrist circumference + 2 cm <br/><br/> 1. First, use a measuring tape to measure the circumference of your wrist where you usually wear your bracelet. If you do not have a measuring tape, you can use a strip of paper, ribbon, or string, and wrap it around your wrist to take the measurement. <br/><br/>2. If you are using a strip of paper, ribbon, or string, mark the endpoint and then measure the length with a ruler to get the wrist circumference. To ensure a comfortable fit, add 2 cm to your wrist measurement to determine the ideal bracelet circumference.')">
+          </span>
+        </div>
+      </div>
+    </div>
+    <footer class="sidebar-footer">
+      <button class="continue-btn" onclick="handleContinue()">Continue</button>
+    </footer>
+  </div>
+
+  <div class="overlay-sidebar" id="overlaySidebar">
+    <div class="sidebar-header">
+      <h5>Menu</h5>
+      <span class="toggle-sidebar overlay-sidebar-close-btn" onclick="toggleOverlay()">&times;</span>
+    </div>
+
+    <div class="overlay-nav">
+      <div class="overlay-nav-item">
+        <span>Save for later</span>
+        <span class="fa-solid fa-arrow-right canvas-icon"></span>
+      </div>
+      <div class="overlay-nav-item">
+        <span>Start over</span>
+        <span class="fa-solid fa-arrow-right canvas-icon"></span>
+      </div>
+      <div class="overlay-nav-item">
+        <span>Create new bracelet</span>
+        <span class="fa-solid fa-arrow-right canvas-icon"></span>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile Bottom Fixed Section -->
+  <div class="mobile-bottom-section">
+    <div class="mobile-sidebar-header">
+      <span class="price">$100</span>
+      <button class="finalize-btn">Finalize <i class="fa-solid fa-arrow-right finalize-btn-icon"></i></button>
+      <span class="toggle-sidebar" onclick="toggleOverlay()">&#9776;</span>
+    </div>
+    <div class="mobile-sidebar-body" id="mobileSidebarBody">
+      <p class="sidebar-body-main-heading">Please select the bracelet circumference</p>
+      <div class="nav-item" onclick="toggleSection('mobileQuickSelection')">
+        <i class="fa-solid fa-angles-right nav-item-icon"></i><span class="nav-text">Quick Selection</span>
+        <span class="fa-solid fa-chevron-right"></span>
+      </div>
+      <div id="mobileQuickSelection" class="hidden-section">
+        <div class="wrap-selection">
+          <p>Wrap:</p>
+          <button class="selectable-wrap" onclick="selectWrapOption(this)">1</button>
+          <button class="selectable-wrap" onclick="selectWrapOption(this)">2</button>
+          <button class="selectable-wrap" onclick="selectWrapOption(this)">3</button>
+          <span class="fa-regular fa-circle-question help-icon"
+            onclick="event.stopPropagation(); 
+                                showToast('How to measure your wrist size?', 
+                                            'Wrist circumference + 2 cm <br/><br/> 1. First, use a measuring tape to measure the circumference of your wrist where you usually wear your bracelet. If you do not have a measuring tape, you can use a strip of paper, ribbon, or string, and wrap it around your wrist to take the measurement. <br/><br/>2. If you are using a strip of paper, ribbon, or string, mark the endpoint and then measure the length with a ruler to get the wrist circumference. To ensure a comfortable fit, add 2 cm to your wrist measurement to determine the ideal bracelet circumference.')">
+          </span>
+        </div>
+        <div class="selectable" onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">17cm</h3>
+          <span class="sel-circum-text">Suitable for women with slimmer wrists</span>
+        </div>
+        <div class="selectable" onclick="selectOption(this)">
+          <h3 class="sel-circum-heading">18cm</h3>
+          <span class="sel-circum-text">Suitable for most women</span>
+        </div>
+      </div>
+      <div class="nav-item" onclick="toggleSection('mobileCustomLength')">
+        <i class="fa-regular fa-user nav-item-icon"></i><span class="nav-text">Custom Length</span>
+        <span class="fa-solid fa-chevron-right"></span>
+      </div>
+      <div id="mobileCustomLength" class="hidden-section custom-length-field">
+        <div class="input-wrapper">
+          <input type="number" placeholder="Circumference (cm)">
+          <span class="fa-regular fa-circle-question help-icon"
+            onclick="event.stopPropagation(); 
+                                showToast('How to measure your wrist size?', 
+                                            'Wrist circumference + 2 cm <br/><br/> 1. First, use a measuring tape to measure the circumference of your wrist where you usually wear your bracelet. If you do not have a measuring tape, you can use a strip of paper, ribbon, or string, and wrap it around your wrist to take the measurement. <br/><br/>2. If you are using a strip of paper, ribbon, or string, mark the endpoint and then measure the length with a ruler to get the wrist circumference. To ensure a comfortable fit, add 2 cm to your wrist measurement to determine the ideal bracelet circumference.')">
+          </span>
+        </div>
+      </div>
+    </div>
+    <footer class="mobile-sidebar-footer">
+      <button class="continue-btn" onclick="handleMobileContinue()">Continue</button>
+    </footer>
+  </div>
+
+
+
+
+
+</body>
+
+</html>

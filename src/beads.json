@@ -1,0 +1,150 @@
+{
+    "beads": [
+        {
+            "id": 0,
+            "name": "Rock Crystal",
+            "url": "RoCr.glb",
+            "img": "RoCr.png",
+            "price": 50,
+            "color": "White & Silver",
+            "energy": "Protection & Shielding",
+            "sizes": [
+                {
+                    "size": 6,
+                    "price": 10
+                },
+                {
+                    "size": 8,
+                    "price": 20
+                },
+                {
+                    "size": 10,
+                    "price": 30
+                }
+            ],
+            "description": "Rock Crystal is a powerful stone that can help you to amplify your energy and intentions. It is a master healer that can help you to focus your energy and intentions on what you want to manifest in your life. It can also help you to clear negative energy and bring in positive energy. Rock Crystal is a great stone to use when you are feeling overwhelmed or stressed, as it can help you to calm your mind and focus on what is important. It is also a great stone to use when you are feeling stuck or blocked, as it can help you to break through any obstacles that are holding you back."
+
+        },
+        {
+            "id": 1,
+            "name": "Kyanite",
+            "price": 10,
+            "url": "Ky.glb",
+            "img": "Ky.png",
+            "color": "Blue",
+            "energy": "Wealth & Career",
+            "sizes": [
+                {
+                    "size": 6,
+                    "price": 10
+                },
+                {
+                    "size": 8,
+                    "price": 20
+                },
+                {
+                    "size": 10,
+                    "price": 30
+                }
+            ],
+            "description": " Kyanite is a powerful stone that can help you to connect with your inner wisdom and intuition. It is a great stone to use when you are feeling stuck or blocked, as it can help you to break through any obstacles that are holding you back. Kyanite is also a great stone to use when you are feeling overwhelmed or stressed, as it can help you to calm your mind and focus on what is important. It is a great stone to use when you are feeling lost or confused, as it can help you to find your way and make decisions that are in alignment with your highest good."
+
+        },
+        {
+            "id": 2,
+            "name": "Malachite",
+            "url": "Ma.glb",
+            "price": 20,
+            "color": "Green",
+            "energy": "Love & Relationships",
+            "img": "Ma.png",
+            "sizes": [
+                {
+                    "size": 6,
+                    "price": 10
+                },
+                {
+                    "size": 8,
+                    "price": 20
+                },
+                {
+                    "size": 10,
+                    "price": 30
+                }
+            ],
+            "description": "Malachite is a powerful stone that can help you to connect with your heart and open yourself up to love. It is a great stone to use when you are feeling stuck or blocked, as it can help you to break through any obstacles that are holding you back. Malachite is also a great stone to use when you are feeling overwhelmed or stressed, as it can help you to calm your mind and focus on what is important. It is a great stone to use when you are feeling lost or confused, as it can help you to find your way and make decisions that are in alignment with your highest good."
+        },
+        {
+            "id": 3,
+            "name": "Hawks Eye",
+            "url": "HaEy.glb",
+            "price": 30,
+            "color": "Black",
+            "energy": "Health & Vitality",
+            "img": "HaEy.png",
+            "sizes": [
+                {
+                    "size": 6,
+                    "price": 10
+                },
+                {
+                    "size": 8,
+                    "price": 20
+                },
+                {
+                    "size": 10,
+                    "price": 30
+                }
+            ],
+            "description": "Hawks Eye is a powerful stone that can help you to connect with your inner strength and courage. It is a great stone to use when you are feeling stuck or blocked, as it can help you to break through any obstacles that are holding you back. Hawks Eye is also a great stone to use when you are feeling overwhelmed or stressed, as it can help you to calm your mind and focus on what is important. It is a great stone to use when you are feeling lost or confused, as it can help you to find your way and make decisions that are in alignment with your highest good."
+        },
+        {
+            "id": 4,
+            "name": "Obsidian",
+            "url": "Ob.glb",
+            "img": "Ob.png",
+            "price": 40,
+            "color": "Black",
+            "energy": "Calm & Relaxation",
+            "sizes": [
+                {
+                    "size": 6,
+                    "price": 10
+                },
+                {
+                    "size": 8,
+                    "price": 20
+                },
+                {
+                    "size": 10,
+                    "price": 30
+                }
+            ],
+            "description": "Obsidian is a powerful stone that can help you to connect with your inner strength and courage. It is a great stone to use when you are feeling stuck or blocked, as it can help you to break through any obstacles that are holding you back. Obsidian is also a great stone to use when you are feeling overwhelmed or stressed, as it can help you to calm your mind and focus on what is important. It is a great stone to use when you are feeling lost or confused, as it can help you to find your way and make decisions that are in alignment with your highest good."
+        },
+        {
+            "id": 5,
+            "name": "Southern Red Agate",
+            "url": "ReAg.glb",
+            "img": "ReAg.png",
+            "price": 50,
+            "color": "Red & Pink",
+            "energy": "Intuition & Spirituality",
+            "sizes": [
+                {
+                    "size": 6,
+                    "price": 10
+                },
+                {
+                    "size": 8,
+                    "price": 20
+                },
+                {
+                    "size": 10,
+                    "price": 30
+                }
+            ],
+            "description": "Southern Red Agate is a powerful stone that can help you to connect with your intuition and spirituality. It is a great stone to use when you are feeling stuck or blocked, as it can help you to break through any obstacles that are holding you back. Southern Red Agate is also a great stone to use when you are feeling overwhelmed or stressed, as it can help you to calm your mind and focus on what is important. It is a great stone to use when you are feeling lost or confused, as it can help you to find your way and make decisions that are in alignment with your highest good."
+        }
+    ]
+}
