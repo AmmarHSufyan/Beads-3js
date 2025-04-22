@@ -53,6 +53,8 @@ controls.dampingFactor = 0.05; // Adjust damping factor (lower values are smooth
 controls.enablePan = false;
 
 
+// Flag to track if beads are compressed
+let areBeadsCompressed = false;
 
 // Add postprocessing
 const composer = new EffectComposer(renderer);
@@ -144,7 +146,19 @@ function createBeads() {
     const loader = new GLTFLoader();
     beads.forEach((bead, index) => {
         // let angle = (index / beadCount) * 1.23 * Math.PI; // Calculate angle for each bead
-        let angle = (index / beadCount) * 2 * Math.PI; // Calculate angle for each bead
+        
+        // Determine the angle based on whether beads are compressed or not
+        let angle;
+        if (areBeadsCompressed) {
+            // If compressed, place all beads at a small section of the torus (e.g., top quarter)
+            // Use a small portion of the circle (e.g., π/4 or less depending on bead count)
+            const sectionSize = Math.min(Math.PI / 2, 2 * Math.PI / beadCount); // Smaller of π/2 or space needed
+            angle = Math.PI / 2 + (index / beadCount) * sectionSize;
+        } else {
+            // Normal distribution around the whole torus
+            angle = (index / beadCount) * 2 * Math.PI;
+        }
+        
         const beadId = bead.id;
         const beadData = beadsJSON.beads[beadId]; 
         const beadUrl = beadData.url;
@@ -245,6 +259,9 @@ const downButton = document.querySelector('.fa-angle-down.canvas-icon').parentEl
 const leftButton = document.querySelector('.fa-chevron-left.canvas-icon').parentElement;
 const rightButton = document.querySelector('.fa-angle-right.canvas-icon').parentElement;
 
+// Compress beads button
+const compressButton = document.querySelector('.fa-down-left-and-up-right-to-center.canvas-icon').parentElement;
+
 // Movement step size - adjust as needed
 const moveStep = 0.3;
 
@@ -310,6 +327,16 @@ if (rightButton) {
     });
 }
 
+// Add event listener for compress button
+if (compressButton) {
+    compressButton.addEventListener('click', () => {
+        // Toggle compression state
+        areBeadsCompressed = !areBeadsCompressed;
+        
+        // Recreate beads with new layout
+        createBeads();
+    });
+}
 
 //UI
 
